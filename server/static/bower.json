@@ -1,0 +1,18 @@
+{
+  "name": "static",
+  "version": "0.0.0",
+  "authors": [
+    "Dheera Venkatraman <dheera@dheera.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.1"
+  }
+}
