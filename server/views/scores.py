@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
-from flask import Blueprint, render_template, abort, request
+from flask import Blueprint, render_template, abort, request, Response
 import requests, json
+from bs4 import BeautifulSoup
+from pprint import pprint
 
 scores = Blueprint('scores', __name__, template_folder='templates')
 
@@ -13,46 +15,46 @@ def show():
   if 'imslp.org/wiki/' not in url:
     abort(404)
   params = {
-    'action': 'raw',
+    'action': 'render',
   }
   headers = {
     'Referer': 'http://localhost:5900/scores'
   }
   response = requests.get(url, params = params).text
-  lines = response.split('\n')
-  outscores = []
-  attrs = {}
-  for line in lines:
-    line = line.strip()
-    if line.startswith('{{#fte:imslpfile'):
-      outscores.append({'files':[]})
+  soup = BeautifulSoup(response,'lxml')
+  el = soup.find('h2')
 
-    if line.startswith('|') and '=' in line and len(outscores)>0:
-      line = line.strip('|')
-      key, val = line.split('=',1)
-      attrs[key] = val
+  scores = []
 
-    if line.startswith('}}') and len(outscores)>0:
-      for i in range(1,32):
-        if 'File Name ' + str(i) in attrs and 'File Description ' + str(i) in attrs:
-          outscores[-1]['files'].append({
-            'filename':    attrs.get('File Name ' + str(i),''),
-            'description': attrs.get('File Description ' + str(i),''),
-            'page_count':  attrs.get('Page Count ' + str(i),0),
-          })
+  while el is not None:
+    if el.name == 'h2':
+      is_sheet_music = 'Sheet Music' in el.get_text()
+    if is_sheet_music:
+      if el.name == 'h3':
+        scores.append( { '@type': 'heading', 'level': 3, 'text': el.get_text().strip() })
+      if el.name == 'h4':
+        scores.append( { '@type': 'heading', 'level': 4, 'text': el.get_text().strip() })
+      if el.name == 'h5':
+        scores.append( { '@type': 'heading', 'level': 5, 'text': el.get_text().strip() })
 
-      if 'Copyright' in attrs:
-        outscores[-1]['copyright'] = attrs.get('Copyright')
+      if 'we' in el.get('class',[]):
+        # begin score
+        print("*** begin score")
+        scores.append({ '@type': 'score', 'files': [] })
 
-      if 'Publisher Information' in attrs:
-        outscores[-1]['publisher'] = attrs.get('Publisher Information')
+      if 'we_file_download' in el.get('class',[]):
+        el_a = el.find_next('a')
+        scores[-1]['files'].append({
+          'url': el_a.attrs['href'],
+          'description': el_a.get_text().strip(),
+        })
 
-      if 'Misc. Notes' in attrs:
-        outscores[-1]['notes'] = attrs.get('Misc. Notes')
+      if 'we_edition_label' in el.get('class',[]):
+        el2 = el.find_next()
+        if 'we_edition_entry' in el2.get('class',[]):
+          scores[-1][el.get_text().strip(':. ')] = el2.get_text()
 
-      if 'Thumb Filename' in attrs:
-        outscores[-1]['thumb'] = attrs.get('Thumb Filename')
-
-  return json.dumps(outscores)
+    el = el.find_next()
+  return Response(json.dumps(scores, indent=2), mimetype='text/plain')
 
 # http://imslp.org/api.php?action=query&titles=File:TN-Beethoven_Werke_Breitkopf_Serie_1_No_5_Op_67.jpg&prop=imageinfo&iiprop=url&format=json
