@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from flask import Flask, request, render_template, send_file, send_from_directory, redirect
 from jinja2 import Markup
 import re, json, os, socket, htmlmin
-from urllib2 import quote
 from random import randrange
 
 app = Flask(__name__)
@@ -12,6 +11,9 @@ app = Flask(__name__)
 @app.route('/')
 def get_index():
   return htmlmin.minify(render_template('index.html'))
+
+from .views.search import search
+app.register_blueprint(search)
 
 @app.route('/favicon.ico')
 def send_favicon():
