@@ -64,12 +64,24 @@
     {% raw %}
     <template id="scores" is="dom-bind">
       <template is="dom-repeat" items="{{data}}">
-        <paper-card>
-          <div class="card-body">
-            <div style="color:#808080;font-size:14px;">{{item.publisher}}</div>
-            <div style="color:#b0b0b0;font-size:11px;">{{item.copyright}}</div>
-          </div>
-        </paper-card>
+        <template is="dom-if" if="{{item.isH3}}">
+          <h3>{{item.text}}</h3>
+        </template>
+        <template is="dom-if" if="{{item.isH4}}">
+          <h4>{{item.text}}</h4>
+        </template>
+        <template is="dom-if" if="{{item.isH5}}">
+          <h5>{{item.text}}</h5>
+        </template>
+        <template is="dom-if" if="{{item.isScore}}">
+          <paper-card>
+            <div class="card-body">
+              <div style="float:right;"><img src="{{item.thumb}}" style="width:100px;"></div>
+              <div style="color:#808080;font-size:14px;">{{item.publisher}}</div>
+              <div style="color:#b0b0b0;font-size:11px;text-transform:uppercase;">{{item.copyright}}</div>
+            </div>
+          </paper-card>
+        </template>
       </template>
     </template>
     {% endraw %}

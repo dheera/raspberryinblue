@@ -26,7 +26,7 @@ def show():
   results_out = []
   for result in results:
     results_out.append({
-      'url': result['url'],
+      'url': result['unescapedUrl'],
       'title': result['titleNoFormatting'].split(' - ',1)[0],
     })
   return json.dumps(results_out)

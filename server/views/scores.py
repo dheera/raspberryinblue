@@ -42,17 +42,33 @@ def show():
         print("*** begin score")
         scores.append({ '@type': 'score', 'files': [] })
 
-      if 'we_file_download' in el.get('class',[]):
-        el_a = el.find_next('a')
-        scores[-1]['files'].append({
-          'url': el_a.attrs['href'],
-          'description': el_a.get_text().strip(),
-        })
+      if len(scores)>0 and 'files' in scores[-1]:
+        if 'we_file_download' in el.get('class',[]):
+          el_a = el.find_next('a')
+          scores[-1]['files'].append({
+            'url': el_a.attrs['href'],
+            'description': el_a.get_text().strip(),
+          })
 
-      if 'we_edition_label' in el.get('class',[]):
-        el2 = el.find_next()
-        if 'we_edition_entry' in el2.get('class',[]):
-          scores[-1][el.get_text().strip(':. ')] = el2.get_text()
+        if 'we_edition_label' in el.get('class',[]):
+          el2 = el.find_next()
+          if 'we_edition_entry' in el2.get('class',[]):
+            key = el.get_text().strip(':. ')
+            value = el2.get_text().strip()
+            if key == 'Publisher Info':
+              scores[-1]['publisher'] = el2.get_text()
+            if key == 'Misc. Notes':
+              scores[-1]['notes'] = el2.get_text()
+            if key == 'Copyright':
+              scores[-1]['copyright'] = el2.get_text()
+
+        if 'we_thumb' in el.get('class',[]):
+          el2 = el.find_next('img')
+          src = el2.attrs['src']
+          if src.startswith('/'):
+            scores[-1]['thumb'] = 'http://imslp.org' + el2.attrs['src']
+          else:
+            scores[-1]['thumb'] = el2.attrs['src']
 
     el = el.find_next()
   return Response(json.dumps(scores, indent=2), mimetype='text/plain')
