@@ -1,0 +1,89 @@
+{
+    "responseData": {
+        "cursor": {
+            "currentPageIndex": 0,
+            "estimatedResultCount": "4100",
+            "moreResultsUrl": "http://www.google.com/search?oe=utf8&ie=utf8&source=uds&start=0&hl=en&q=site:imslp.org+beethoven",
+            "pages": [
+                {
+                    "label": 1,
+                    "start": "0"
+                },
+                {
+                    "label": 2,
+                    "start": "4"
+                },
+                {
+                    "label": 3,
+                    "start": "8"
+                },
+                {
+                    "label": 4,
+                    "start": "12"
+                },
+                {
+                    "label": 5,
+                    "start": "16"
+                },
+                {
+                    "label": 6,
+                    "start": "20"
+                },
+                {
+                    "label": 7,
+                    "start": "24"
+                },
+                {
+                    "label": 8,
+                    "start": "28"
+                }
+            ],
+            "resultCount": "4,100",
+            "searchResultTime": "0.18"
+        },
+        "results": [
+            {
+                "GsearchResultClass": "GwebSearch",
+                "cacheUrl": "http://www.google.com/search?q=cache:GwgyYi5tc8MJ:imslp.org",
+                "content": "Feb 20, 2014 <b>...</b> &quot;WoO&quot; numbers for works are cited from: Georg Kinsky &amp; Hans Halm, Das Werk \n<b>Beethovens</b> (Munich, 1955); &quot;H&quot; numbers for works are cited ...",
+                "title": "Category:<b>Beethoven</b>, Ludwig van - IMSLP/Petrucci Music Library <b>...</b>",
+                "titleNoFormatting": "Category:Beethoven, Ludwig van - IMSLP/Petrucci Music Library ...",
+                "unescapedUrl": "http://imslp.org/wiki/Category:Beethoven,_Ludwig_van",
+                "url": "http://imslp.org/wiki/Category:Beethoven,_Ludwig_van",
+                "visibleUrl": "imslp.org"
+            },
+            {
+                "GsearchResultClass": "GwebSearch",
+                "cacheUrl": "http://www.google.com/search?q=cache:oEKfhuf6HkcJ:imslp.org",
+                "content": "Sep 4, 2015 <b>...</b> PMLP12359-<b>Beethoven</b> Horn Sonata Op.17.pdf. Publisher Info.: ... PMLP12359-\n<b>Beethoven</b> - Sonata Op17 Piano.pdf. Publisher Info.:.",
+                "title": "Horn Sonata, Op.17 (<b>Beethoven</b>, Ludwig van) - IMSLP/Petrucci <b>...</b>",
+                "titleNoFormatting": "Horn Sonata, Op.17 (Beethoven, Ludwig van) - IMSLP/Petrucci ...",
+                "unescapedUrl": "http://imslp.org/wiki/Horn_Sonata,_Op.17_(Beethoven,_Ludwig_van)",
+                "url": "http://imslp.org/wiki/Horn_Sonata,_Op.17_(Beethoven,_Ludwig_van)",
+                "visibleUrl": "imslp.org"
+            },
+            {
+                "GsearchResultClass": "GwebSearch",
+                "cacheUrl": "http://www.google.com/search?q=cache:dk3Wh04GTTUJ:imslp.org",
+                "content": "Sep 16, 2015 <b>...</b> Piano Sonata No.26, Op.81a (<b>Beethoven</b>, Ludwig van). Add File .... TN-\n<b>Beethoven</b> Werke Breitkopf Serie 16 No 149 Op 81a.jpg. Publisher Info.:.",
+                "title": "Piano Sonata No.26, Op.81a (<b>Beethoven</b>, Ludwig van) - IMSLP <b>...</b>",
+                "titleNoFormatting": "Piano Sonata No.26, Op.81a (Beethoven, Ludwig van) - IMSLP ...",
+                "unescapedUrl": "http://imslp.org/wiki/Piano_Sonata_No.26,_Op.81a_(Beethoven,_Ludwig_van)",
+                "url": "http://imslp.org/wiki/Piano_Sonata_No.26,_Op.81a_(Beethoven,_Ludwig_van)",
+                "visibleUrl": "imslp.org"
+            },
+            {
+                "GsearchResultClass": "GwebSearch",
+                "cacheUrl": "http://www.google.com/search?q=cache:s5KFn161er4J:imslp.org",
+                "content": "Sep 26, 2015 <b>...</b> TN-<b>Beethoven</b> Werke Breitkopf Serie 1 No 5 Op 67.jpg. Publisher Info.: Ludwig \nvan <b>Beethovens</b> Werke, Serie 1: Symphonien, Nr.5. Leipzig: ...",
+                "title": "Symphony No.5, Op.67 (<b>Beethoven</b>, Ludwig van) - IMSLP/Petrucci <b>...</b>",
+                "titleNoFormatting": "Symphony No.5, Op.67 (Beethoven, Ludwig van) - IMSLP/Petrucci ...",
+                "unescapedUrl": "http://imslp.org/wiki/Symphony_No.5,_Op.67_(Beethoven,_Ludwig_van)",
+                "url": "http://imslp.org/wiki/Symphony_No.5,_Op.67_(Beethoven,_Ludwig_van)",
+                "visibleUrl": "imslp.org"
+            }
+        ]
+    },
+    "responseDetails": null,
+    "responseStatus": 200
+}

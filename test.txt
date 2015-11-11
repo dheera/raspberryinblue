@@ -1,0 +1,53 @@
+{{#fte:imslpfile
+|File Name 1=PMLP01607-Beethoven-Op125mss.pdf
+|File Description 1=Complete Score
+|Page Count 1=425
+|Editor=
+|Image Type=Manuscript Scan
+|Scanner={{SBB}}
+|Uploader=[[User:carmar1791|carmar1791]]
+|Date Submitted=2008/7/25
+|Publisher Information=Composer's Manuscript, n.d.(1824)
+|Copyright=Public Domain
+|Misc. Notes=Low resolution color scan (72 dpi)
+|File Name 2=PMLP01607-Beethoven-Op125mss3.pdf
+|File Description 2=III. Adagio molto e cantabile (cropped images)
+|Page Count 2=46
+|SM+={{SMPlink|Symphony-No-9-Op-125-d-Reprint-of-Facsimil/1029709|Peters (facsimile)}}<br>{{SMPlink|Symphony-No-9-Op-125/19511015|Bäreneiter (facsimile)}}
+}}
+{{#fte:imslpfile
+|File Name 1=PMLP01607-LvBeethoven_Symphony_No.9,_Op.125_fe_fs_BPL.pdf
+|File Name 2=PMLP01607-Op.125.pdf
+|File Name 3=PMLP01607-LvanBeethoven_Symphony_No.9,_Op.125_mvtI_FE_FS.pdf
+|File Name 4=PMLP01607-LvanBeethoven_Symphony_No.9,_Op.125_mvtII_FE_FS.pdf
+|File Name 5=PMLP01607-LvanBeethoven_Symphony_No.9,_Op.125_mvtIII_FE_FS.pdf
+|File Name 6=PMLP01607-LvanBeethoven_Symphony_No.9,_Op.125_mvtIV_FE_FS.pdf
+|File Name 7=PMLP01607-LvanBeethoven_Symphony_No.9,_Op.125_graycover_FE_FS.pdf
+|File Description 1=Complete Score (monochrome)
+|File Description 2=Complete Score (color)
+|File Description 3=I. Allegro ma non troppo, un poco maestoso (monochrome)
+|File Description 4=II. Scherzo: Molto vivace - Presto (monochrome)
+|File Description 5=III. Adagio molto e cantabile (monochrome)
+|File Description 6=IV. Presto (monochrome)
+|File Description 7=Cover Page (grayscale)
+|Page Count 2=230
+|Page Count 3=47
+|Page Count 4=30
+|Page Count 5=21
+|Page Count 6=131
+|Page Count 7=1
+|Editor={{FE}}
+|Image Type=Normal Scan
+|Scanner 1={{IArchS|sinfoniemitschlu00beet}}
+|Scanner={{Loeb|2796851}}
+|Uploader=[[User:Cypressdome|Cypressdome]]
+|Date Submitted=2011/7/9
+|Date Submitted 1=2014/6/11
+|Scanner 2={{BeethBonn}}
+|Uploader 2=[[User:Ivdruiz|Ivdruiz]]
+|Date Submitted 2=2009/11/16
+|Publisher Information={{P|Schott||Mainz|n.d.[1826]|1826||2322}}
+|Thumb Filename=TN-LvanBeethoven_Symphony_No.9,_Op125_graycover.jpg
+|Copyright=Public Domain
+|Misc. Notes=#46254: Low Resolution Color Scans. #108610–108614: Original scans: 195dpi, color jpg images approximately 2000 by 2400 pixels. Converted to black and white tif files, deskewed (somewhat), re-sampled to 600dpi, and set uniform margins.<br>#328923: {{Cypsub|300dpi, color jp2|3270 by 4360}}
+}}

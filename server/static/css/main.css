@@ -10,7 +10,46 @@ body {
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
-  background:#ffffff;
+  background:#f8f8f8;
   color:#606060;
 }
 
+#div-results paper-card {
+  margin-bottom:20px;
+  width:100%;
+  cursor:pointer;
+  padding:10px;
+}
+
+#div-results paper-card h3 {
+  color:#808080;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+#div-scores paper-card {
+  margin-bottom:20px;
+  width:100%;
+  cursor:pointer;
+  padding:10px;
+}
+
+.viewpager {
+  display:block;
+  overflow:hidden;
+}
+
+.viewpager-fragments {
+  display:table;
+  table-layout:fixed;
+  width:200%;
+  -webkit-transition:-webkit-transform 0.3s ease;
+  -webkit-transform:translateX(0%);
+}
+
+.viewpager-fragment {
+  width:100%;
+  height:100%;
+  display:table-cell;
+}

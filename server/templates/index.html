@@ -16,17 +16,18 @@
 
   <link href="//polygit.org/polymer+:master/components/polymer/polymer.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-input/paper-input.html" rel="import">
+  <link href="//polygit.org/polymer+:master/components/paper-spinner/paper-spinner.html" rel="import">
+  <link href="//polygit.org/polymer+:master/components/paper-card/paper-card.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-header-panel/paper-header-panel.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-toolbar/paper-toolbar.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-icon-button/paper-icon-button.html" rel="import">
-
   <link href="//fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet" type="text/css">
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/jquery.transit.min.js"></script>
   <script src="/static/js/main.js"></script>
 </head>
-<body>
+<body unresolved>
 
 <paper-toolbar style="background:#333333">
   <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
@@ -34,9 +35,48 @@
   <paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
 </paper-toolbar>
 
-<div style="padding:40px;">
-  <paper-input label="Search for scores ..."></paper-input>
-</div>
+<div id="viewpager" class="viewpager"><div class="viewpager-fragments">
+
+
+  <div id="fragment-results" class="viewpager-fragment">
+    <div id="div-input" style="padding-left:40px;padding-right:40px;padding-bottom:20px;padding-top:10px;background:#ffffff;">
+      <paper-input id="input-search" label="Search for scores ..."></paper-input>
+    </div>
+    <div id="div-results" style="padding:40px;">
+    <div id="div-results-spinner" style="text-align:center;display:none;"><paper-spinner active></paper-spinner></div>
+    {% raw %}
+    <template id="results" is="dom-bind">
+      <template is="dom-repeat" items="{{data}}">
+        <paper-card on-click="doResultsCard">
+          <div class="card-body"><h3>{{item.title}}</h3></div>
+        </paper-card>
+      </template>
+    </template>
+    {% endraw %}
+    </div>
+    <div id="div-ack" style="padding:40px;color:#a0a0a0;font-size:11px;text-align:center;">
+      Powered by <a href="http://google.com/">Google</a> and <a href="http://imslp.org">IMSLP</a>.
+    </div>
+  </div>
+  <div id="fragment-scores" class="viewpager-fragment">
+    <div id="div-scores" style="padding:40px;">
+    <div id="div-scores-spinner" style="text-align:center;display:none;"><paper-spinner active></paper-spinner></div>
+    {% raw %}
+    <template id="scores" is="dom-bind">
+      <template is="dom-repeat" items="{{data}}">
+        <paper-card>
+          <div class="card-body">
+            <div style="color:#808080;font-size:14px;">{{item.publisher}}</div>
+            <div style="color:#b0b0b0;font-size:11px;">{{item.copyright}}</div>
+          </div>
+        </paper-card>
+      </template>
+    </template>
+    {% endraw %}
+    </div>
+  </div>
+
+</div></div>
 
 </body>
 </html>
