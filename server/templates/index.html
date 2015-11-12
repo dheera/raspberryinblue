@@ -41,16 +41,16 @@
 
 
   <div id="fragment-results" class="viewpager-fragment">
-    <div id="div-input" style="padding-left:40px;padding-right:40px;padding-bottom:20px;padding-top:10px;background:#ffffff;">
+    <div id="div-input" style="padding-left:20px;padding-right:20px;padding-bottom:20px;padding-top:10px;background:#ffffff;">
       <paper-input id="input-search" label="Search for scores ..."></paper-input>
     </div>
-    <div id="div-results" style="padding:40px;">
+    <div id="div-results" style="padding:20px;">
     <div id="div-results-spinner" style="text-align:center;display:none;"><paper-spinner active></paper-spinner></div>
     {% raw %}
     <template id="results" is="dom-bind">
       <template is="dom-repeat" items="{{data}}">
         <paper-card on-click="doResultsCard">
-          <div class="card-body"><h3>{{item.title}}</h3></div>
+          <div class="card-body"><div style="font-size:18px;">{{item.title}}</div></div>
         </paper-card>
       </template>
     </template>
@@ -61,7 +61,7 @@
     </div>
   </div>
   <div id="fragment-scores" class="viewpager-fragment">
-    <div id="div-scores" style="padding:40px;">
+    <div id="div-scores" style="padding:20px;">
     <div id="div-scores-spinner" style="text-align:center;display:none;"><paper-spinner active></paper-spinner></div>
     {% raw %}
     <template id="scores" is="dom-bind">
@@ -78,14 +78,13 @@
         <template is="dom-if" if="{{item.isScore}}">
           <paper-card>
             <div class="card-body">
-              <div style="float:right;"><img src="{{item.thumb}}" style="width:100px;"></div>
+              <div style="float:right;"><img src="{{item.thumb}}" style="width:100px;border-left:10px solid white;"></div>
               <div style="color:#808080;font-size:16px;margin-bottom:5px;">{{item.publisher}}</div>
               <div style="color:#b0b0b0;font-size:12px;text-transform:uppercase;margin-bottom:10px;">{{item.copyright}}</div>
-            </div>
-            <div class="card-actions">
-            <template is="dom-repeat" items="{{item.files}}" as="file">
-               <div><paper-button>{{ file.description }}</paper-button></div>
-            </template>
+              <div style="border-top:1px solid #d0d0d0;margin-top:10px;margin-bottom:10px;"></div>
+              <template is="dom-repeat" items="{{item.files}}" as="file">
+                 <div><paper-button>{{ file.description }}</paper-button></div>
+              </template>
             </div>
           </paper-card>
         </template>
