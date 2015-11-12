@@ -36,7 +36,6 @@ function getScores(url) {
         }
       }
       _('#scores').data=data;
-      console.log(data);
     },
     'json'
   );
@@ -59,6 +58,7 @@ function getSearch(q) {
 }
 
 $(function() {
+  page(0);
   _('#input-search').addEventListener('change', function(event) {
     getSearch(event.target.value);
   });
@@ -70,4 +70,15 @@ $(function() {
 // todo: build an actual Polymer component
 function page(index) {
   _('.viewpager-fragments').style.webkitTransform = 'translateX(' + (-index*50) + '%)';
+  if(index === 0) {
+    _('#nav-back').style.display='none';
+    _('#nav-menu').style.display='';
+  } else {
+    _('#nav-back').style.display='';
+    _('#nav-menu').style.display='none';
+  }
+}
+
+function doNavBack() {
+  page(0);
 }
