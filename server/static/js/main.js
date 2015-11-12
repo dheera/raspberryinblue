@@ -69,7 +69,7 @@ $(function() {
 
 // todo: build an actual Polymer component
 function page(index) {
-  _('.viewpager-fragments').style.webkitTransform = 'translateX(' + (-index*50) + '%)';
+  _('.viewpager-fragments').style.webkitTransform = 'translateX(' + (-index*100.0/3) + '%)';
   if(index === 0) {
     _('#nav-back').style.display='none';
     _('#nav-menu').style.display='';
