@@ -64,11 +64,12 @@ def show():
 
         if 'we_thumb' in el.get('class',[]):
           el2 = el.find_next('img')
-          src = el2.attrs['src']
-          if src.startswith('/'):
-            scores[-1]['thumb'] = 'http://imslp.org' + el2.attrs['src']
-          else:
-            scores[-1]['thumb'] = el2.attrs['src']
+          if el2:
+            src = el2.attrs.get('src','')
+            if src.startswith('/'):
+              scores[-1]['thumb'] = 'http://imslp.org' + src
+            else:
+              scores[-1]['thumb'] = src
 
     el = el.find_next()
   return Response(json.dumps(scores, indent=2), mimetype='text/plain')
