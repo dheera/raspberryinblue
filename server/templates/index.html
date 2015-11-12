@@ -17,6 +17,7 @@
 
   <link href="//polygit.org/polymer+:master/components/polymer/polymer.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-input/paper-input.html" rel="import">
+  <link href="//polygit.org/polymer+:master/components/paper-button/paper-button.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-spinner/paper-spinner.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-card/paper-card.html" rel="import">
   <link href="//polygit.org/polymer+:master/components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
@@ -79,7 +80,12 @@
             <div class="card-body">
               <div style="float:right;"><img src="{{item.thumb}}" style="width:100px;"></div>
               <div style="color:#808080;font-size:16px;margin-bottom:5px;">{{item.publisher}}</div>
-              <div style="color:#b0b0b0;font-size:12px;text-transform:uppercase;">{{item.copyright}}</div>
+              <div style="color:#b0b0b0;font-size:12px;text-transform:uppercase;margin-bottom:10px;">{{item.copyright}}</div>
+            </div>
+            <div class="card-actions">
+            <template is="dom-repeat" items="{{item.files}}" as="file">
+               <div><paper-button>{{ file.description }}</paper-button></div>
+            </template>
             </div>
           </paper-card>
         </template>

@@ -5,6 +5,11 @@ function doResultsCard(e) {
   getScores(item['url']);
 }
 
+function doScoresCard(e) {
+  item = e.model.item;
+  getScores(item['url']);
+}
+
 function getScores(url) {
   page(1);
   _('#div-scores-spinner').style.display='';
