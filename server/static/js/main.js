@@ -1,5 +1,11 @@
 _ = function(q) { return document.querySelector(q); }
 
+function doFile(e) {
+  file = e.model.file;
+  page(2);
+  $('#iframe-viewer')[0].contentWindow.window.location.href='/static/pdfjs/web/viewer.html?file=http://cors-anywhere.herokuapp.com/http://sonatainblue.com/getfile/' + file['url'];
+}
+
 function doResultsCard(e) {
   item = e.model.item;
   getScores(item['url']);
@@ -65,6 +71,7 @@ $(function() {
   _('#results').data=[];
   _('#results').doResultsCard=doResultsCard;
   _('#scores').data=[];
+  _('#scores').doFile=doFile;
 });
 
 // todo: build an actual Polymer component

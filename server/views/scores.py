@@ -46,7 +46,7 @@ def show():
         if 'we_file_download' in el.get('class',[]):
           el_a = el.find_next('a')
           scores[-1]['files'].append({
-            'url': el_a.attrs['href'],
+            'url': el_a.attrs['href'].replace('ImagefromIndex','IMSLPDisclaimerAccept'),
             'description': el_a.get_text().strip(),
           })
 

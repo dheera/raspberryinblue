@@ -18,6 +18,9 @@ app.register_blueprint(search)
 from .views.scores import scores
 app.register_blueprint(scores)
 
+from .views.getfile import getfile
+app.register_blueprint(getfile)
+
 @app.route('/favicon.ico')
 def send_favicon():
     return send_file('static/favicon.ico')
