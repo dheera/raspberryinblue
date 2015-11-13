@@ -47,9 +47,9 @@ body {
 }
 
 .viewpager-fragments {
-  display:table;
+  /*display:table;
   table-layout:fixed;
-  width:300%;
+  width:300%;*/
   height:100%;
   -webkit-transition:-webkit-transform 0.3s ease;
   -webkit-transform:translateX(0%);
@@ -58,8 +58,8 @@ body {
 .viewpager-fragment {
   width:100%;
   height:100%;
-  display:table-cell;
+  display:block;
+  position:absolute;
   vertical-align:top;
   overflow-x:hidden;
-  overflow-y:auto;
 }
