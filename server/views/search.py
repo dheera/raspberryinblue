@@ -19,9 +19,9 @@ def show():
     'userip': request.remote_addr,
   }
   headers = {
-    'Referer': 'http://localhost:5900/search'
+    'Referer': 'http://sonatainblue.com/search'
   }
-  response = json.loads(requests.get(url, params = params).text)
+  response = json.loads(requests.get(url, params = params, headers = headers).text)
   results = response.get('responseData',{}).get('results',[])
   results_out = []
   for result in results:

@@ -7,8 +7,6 @@ from pprint import pprint
 
 scores = Blueprint('scores', __name__, template_folder='templates')
 
-# view-source:http://localhost:5090/scores?url=http://imslp.org/wiki/Symphony_No.9,_Op.125_(Beethoven,_Ludwig_van)
-
 @scores.route('/scores')
 def show():
   url = request.args.get('url','')
@@ -16,9 +14,6 @@ def show():
     abort(404)
   params = {
     'action': 'render',
-  }
-  headers = {
-    'Referer': 'http://localhost:5900/scores'
   }
   response = requests.get(url, params = params).text
   soup = BeautifulSoup(response,'lxml')
