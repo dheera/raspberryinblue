@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, render_template, send_file, send_from_directory, redirect
+from flask import Flask, request, render_template, send_file, send_from_directory, redirect, make_response
 from jinja2 import Markup
 import re, json, os, socket, htmlmin
 from random import randrange
@@ -12,6 +12,12 @@ app = Flask(__name__)
 @app.route('/')
 def get_index():
   return htmlmin.minify(render_template('index.html'))
+
+@app.route('/manifest.appcache')
+def get_appcache():
+  res = make_response(render_template('manifest.appcache'), 200)
+  res.headers["Content-Type"] = "text/cache-manifest"
+  return res
 
 from .views.search import search
 app.register_blueprint(search)
