@@ -5,6 +5,7 @@ from flask import Flask, request, render_template, send_file, send_from_director
 from jinja2 import Markup
 import re, json, os, socket, htmlmin
 from random import randrange
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -27,7 +28,6 @@ def send_favicon():
 
 @app.after_request
 def after_request(response):
-
   if response.headers['Content-Type'].find('image/')==0:
     response.headers['Cache-Control'] = 'max-age=7200, must-revalidate'
     response.headers['Expires'] = '0'
