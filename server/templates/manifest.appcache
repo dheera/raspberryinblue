@@ -165,7 +165,6 @@ CACHE MANIFEST
 /static/bower_components/paper-menu/hero.svg
 /static/bower_components/paper-menu/index.html
 /static/bower_components/paper-menu/paper-menu.html
-/static/bower_components/paper-menu/paper-menu-shared.css
 /static/bower_components/paper-menu/paper-submenu.html
 /static/bower_components/paper-progress/hero.svg
 /static/bower_components/paper-progress/index.html
