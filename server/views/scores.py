@@ -6,10 +6,13 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 from server import cache
 
+def make_cache_key(*args, **kwargs):
+  return request.url
+
 scores = Blueprint('scores', __name__, template_folder='templates')
 
 @scores.route('/scores')
-@cache.memoize(50)
+@cache.cached(timeout = 86400, key_prefix = make_cache_key)
 def show():
   url = request.args.get('url','')
   if 'imslp.org/wiki/' not in url:
@@ -71,4 +74,3 @@ def show():
     el = el.find_next()
   return Response(json.dumps(scores, indent=2), mimetype='text/plain')
 
-# http://imslp.org/api.php?action=query&titles=File:TN-Beethoven_Werke_Breitkopf_Serie_1_No_5_Op_67.jpg&prop=imageinfo&iiprop=url&format=json
