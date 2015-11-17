@@ -87,7 +87,6 @@ CACHE MANIFEST
 /static/bower_components/neon-animation/animations/slide-right-animation.html
 /static/bower_components/neon-animation/animations/slide-up-animation.html
 /static/bower_components/neon-animation/animations/transform-animation.html
-/static/bower_components/neon-animation/guides
 /static/bower_components/neon-animation/index.html
 /static/bower_components/neon-animation/neon-animatable-behavior.html
 /static/bower_components/neon-animation/neon-animatable.html
