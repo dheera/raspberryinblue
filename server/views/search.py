@@ -21,6 +21,7 @@ def show():
     'v': '1.0',
     'q': 'site:imslp.org ' + query,
     'userip': request.remote_addr,
+    'rsz': '8',
   }
   headers = {
     'Referer': 'http://sonatainblue.com/search'
