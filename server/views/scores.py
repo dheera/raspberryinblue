@@ -7,8 +7,6 @@ from pprint import pprint
 
 scores = Blueprint('scores', __name__, template_folder='templates')
 
-# view-source:http://localhost:5090/scores?url=http://imslp.org/wiki/Symphony_No.9,_Op.125_(Beethoven,_Ludwig_van)
-
 @scores.route('/scores')
 def show():
   url = request.args.get('url','')
@@ -16,9 +14,6 @@ def show():
     abort(404)
   params = {
     'action': 'render',
-  }
-  headers = {
-    'Referer': 'http://localhost:5900/scores'
   }
   response = requests.get(url, params = params).text
   soup = BeautifulSoup(response,'lxml')
@@ -46,7 +41,7 @@ def show():
         if 'we_file_download' in el.get('class',[]):
           el_a = el.find_next('a')
           scores[-1]['files'].append({
-            'url': el_a.attrs['href'],
+            'url': el_a.attrs['href'].replace('ImagefromIndex','IMSLPDisclaimerAccept'),
             'description': el_a.get_text().strip(),
           })
 
@@ -64,11 +59,12 @@ def show():
 
         if 'we_thumb' in el.get('class',[]):
           el2 = el.find_next('img')
-          src = el2.attrs['src']
-          if src.startswith('/'):
-            scores[-1]['thumb'] = 'http://imslp.org' + el2.attrs['src']
-          else:
-            scores[-1]['thumb'] = el2.attrs['src']
+          if el2:
+            src = el2.attrs.get('src','')
+            if src.startswith('/'):
+              scores[-1]['thumb'] = 'http://imslp.org' + src
+            else:
+              scores[-1]['thumb'] = src
 
     el = el.find_next()
   return Response(json.dumps(scores, indent=2), mimetype='text/plain')

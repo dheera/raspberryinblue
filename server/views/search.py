@@ -15,18 +15,19 @@ def show():
   url = 'https://ajax.googleapis.com/ajax/services/search/web'
   params = {
     'v': '1.0',
-    'q': 'site:imslp.org -"Category:"' + query,
+    'q': 'site:imslp.org ' + query,
     'userip': request.remote_addr,
   }
   headers = {
-    'Referer': 'http://localhost:5900/search'
+    'Referer': 'http://sonatainblue.com/search'
   }
-  response = json.loads(requests.get(url, params = params).text)
+  response = json.loads(requests.get(url, params = params, headers = headers).text)
   results = response.get('responseData',{}).get('results',[])
   results_out = []
   for result in results:
-    results_out.append({
-      'url': result['unescapedUrl'],
-      'title': result['titleNoFormatting'].split(' - ',1)[0],
-    })
+    if 'Category:' not in result['titleNoFormatting'] and 'List of' not in result['titleNoFormatting'] and 'Talk:' not in result['titleNoFormatting']:
+      results_out.append({
+        'url': result['unescapedUrl'],
+        'title': result['titleNoFormatting'].split(' - ',1)[0],
+      })
   return json.dumps(results_out)

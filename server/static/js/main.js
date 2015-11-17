@@ -1,6 +1,17 @@
 _ = function(q) { return document.querySelector(q); }
 
+function doFile(e) {
+  file = e.model.file;
+  page(2);
+  $('#iframe-viewer')[0].contentWindow.window.location.href='/static/pdfjs/web/viewer.html?file=http://cors-anywhere.herokuapp.com/http://sonatainblue.com/getfile/' + file['url'];
+}
+
 function doResultsCard(e) {
+  item = e.model.item;
+  getScores(item['url']);
+}
+
+function doScoresCard(e) {
   item = e.model.item;
   getScores(item['url']);
 }
@@ -31,7 +42,6 @@ function getScores(url) {
         }
       }
       _('#scores').data=data;
-      console.log(data);
     },
     'json'
   );
@@ -54,15 +64,31 @@ function getSearch(q) {
 }
 
 $(function() {
+  page(0);
   _('#input-search').addEventListener('change', function(event) {
     getSearch(event.target.value);
   });
   _('#results').data=[];
   _('#results').doResultsCard=doResultsCard;
   _('#scores').data=[];
+  _('#scores').doFile=doFile;
 });
 
 // todo: build an actual Polymer component
 function page(index) {
-  _('.viewpager-fragments').style.webkitTransform = 'translateX(' + (-index*50) + '%)';
+  _('.viewpager-fragments').style.WebkitTransform = 'translateX(' + (-index*100.0) + '%)';
+  _('.viewpager-fragments').style.MozTransform = 'translateX(' + (-index*100.0) + '%)';
+  _('.viewpager-fragments').style.msTransform = 'translateX(' + (-index*100.0) + '%)';
+  _('.viewpager-fragments').style.OTransform = 'translateX(' + (-index*100.0) + '%)';
+  if(index === 0) {
+    _('#nav-back').style.display='none';
+    _('#nav-menu').style.display='';
+  } else {
+    _('#nav-back').style.display='';
+    _('#nav-menu').style.display='none';
+  }
+}
+
+function doNavBack() {
+  page(0);
 }

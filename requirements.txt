@@ -1,0 +1,16 @@
+
+Flask==0.10.1
+Flask-SSLify==0.1.5
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.10.4
+boto==2.38.0
+geoip2==2.1.0
+gunicorn==19.3.0
+htmlmin==0.1.6
+itsdangerous==0.24
+maxminddb==1.2.0
+pymongo==3.0
+requests==2.6.0
+beautifulsoup4==4.4.1
+lxml==3.3.3

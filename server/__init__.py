@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, render_template, send_file, send_from_directory, redirect
+from flask import Flask, request, render_template, send_file, send_from_directory, redirect, make_response
 from jinja2 import Markup
 import re, json, os, socket, htmlmin
 from random import randrange
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -12,11 +13,20 @@ app = Flask(__name__)
 def get_index():
   return htmlmin.minify(render_template('index.html'))
 
+@app.route('/manifest.appcache')
+def get_appcache():
+  res = make_response(render_template('manifest.appcache'), 200)
+  res.headers["Content-Type"] = "text/cache-manifest"
+  return res
+
 from .views.search import search
 app.register_blueprint(search)
 
 from .views.scores import scores
 app.register_blueprint(scores)
+
+from .views.getfile import getfile
+app.register_blueprint(getfile)
 
 @app.route('/favicon.ico')
 def send_favicon():
@@ -24,7 +34,6 @@ def send_favicon():
 
 @app.after_request
 def after_request(response):
-
   if response.headers['Content-Type'].find('image/')==0:
     response.headers['Cache-Control'] = 'max-age=7200, must-revalidate'
     response.headers['Expires'] = '0'
