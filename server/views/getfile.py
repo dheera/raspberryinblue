@@ -20,4 +20,5 @@ def show(url):
   url = url.replace('DisclaimerAccept', 'ImageHandler')
 
   response = requests.get(url, allow_redirects = False, headers = headers)
+  print(response.headers.get('Location',''))
   return redirect(response.headers.get('Location',''))
