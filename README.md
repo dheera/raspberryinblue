@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #  python-getting-started
+=======
+# python-getting-started
+>>>>>>> 31712f9c3da0221544bc5e69c1cdc4ccb22d8463
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 

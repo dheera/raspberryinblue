@@ -1,5 +1,6 @@
 {
   "name": "paper-ripple",
+<<<<<<< HEAD
   "private": true,
   "dependencies": {
     "core-icon": "Polymer/core-icon#^0.5",
@@ -11,3 +12,37 @@
   },
   "version": "0.5.6"
 }
+=======
+  "version": "1.0.4",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "description": "Adds a material design ripple to any container",
+  "private": true,
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "ripple"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/paper-ripple.git"
+  },
+  "main": "paper-ripple.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "iron-a11y-keys-behavior": "polymerelements/iron-a11y-keys-behavior#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
+    "iron-icon": "polymerelements/iron-icon#^1.0.0",
+    "iron-icons": "polymerelements/iron-icons#^1.0.0",
+    "paper-styles": "polymerelements/paper-styles#^1.0.0",
+    "test-fixture": "polymerelements/test-fixture#^1.0.0",
+    "web-component-tester": "*",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0"
+  }
+}
+>>>>>>> 31712f9c3da0221544bc5e69c1cdc4ccb22d8463

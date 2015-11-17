@@ -15,7 +15,11 @@
    id="svg3033"
    version="1.1"
    inkscape:version="0.48.4 r9939"
+<<<<<<< HEAD
    sodipodi:docname="logo.svg">
+=======
+   sodipodi:docname="treble_clef.svg">
+>>>>>>> 31712f9c3da0221544bc5e69c1cdc4ccb22d8463
   <title
      id="title3077">Treble Clef</title>
   <defs
@@ -55,7 +59,11 @@
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1304"
+<<<<<<< HEAD
      inkscape:window-height="1023"
+=======
+     inkscape:window-height="1009"
+>>>>>>> 31712f9c3da0221544bc5e69c1cdc4ccb22d8463
      inkscape:window-x="83"
      inkscape:window-y="26"
      inkscape:window-maximized="0"
@@ -107,6 +115,7 @@
        width="311.22449"
        height="311.22449"
        x="216.43463"
+<<<<<<< HEAD
        y="370.57193"
        inkscape:export-filename="/home/dheera/Dropbox/docs/code/sonatainblue-heroku/art/icon.png"
        inkscape:export-xdpi="296.12"
@@ -118,6 +127,13 @@
        inkscape:export-filename="/home/dheera/Dropbox/docs/code/sonatainblue-heroku/art/icon.png"
        inkscape:export-xdpi="296.12"
        inkscape:export-ydpi="296.12">
+=======
+       y="370.57193" />
+    <g
+       transform="matrix(20.851578,0,0,20.851578,257.36321,453.20378)"
+       style="fill:#ffffff;fill-opacity:1"
+       id="layer1-7">
+>>>>>>> 31712f9c3da0221544bc5e69c1cdc4ccb22d8463
       <g
          transform="translate(-199.399,-536.473)"
          style="fill:#ffffff;fill-opacity:1"
