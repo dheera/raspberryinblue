@@ -12,7 +12,7 @@ def make_cache_key(*args, **kwargs):
 scores = Blueprint('scores', __name__, template_folder='templates')
 
 @scores.route('/scores')
-@cache.cached(timeout = 86400, key_prefix = make_cache_key)
+@cache.cached(timeout = 30*86400, key_prefix = make_cache_key)
 def show():
   url = request.args.get('url','')
   if 'imslp.org/wiki/' not in url:
@@ -72,5 +72,5 @@ def show():
               scores[-1]['thumb'] = src
 
     el = el.find_next()
-  return Response(json.dumps(scores, indent=2), mimetype='text/plain')
+  return Response(json.dumps(scores), mimetype='text/plain')
 
