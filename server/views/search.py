@@ -34,7 +34,8 @@ def show():
        'List of' not in result['titleNoFormatting'] and \
        'Talk:' not in result['titleNoFormatting'] and \
        'User:' not in result['titleNoFormatting'] and \
-       'IMSLP:' not in result['titleNoFormatting']:
+       'IMSLP:' not in result['titleNoFormatting'] and \
+       '(' in result['titleNoFormatting']:
       results_out.append({
         'url': result['unescapedUrl'],
         'title': result['titleNoFormatting'].split(' - ',1)[0],
