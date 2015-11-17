@@ -4,10 +4,12 @@ from flask import Blueprint, render_template, abort, request, Response
 import requests, json
 from bs4 import BeautifulSoup
 from pprint import pprint
+from server import cache
 
 scores = Blueprint('scores', __name__, template_folder='templates')
 
 @scores.route('/scores')
+@cache.memoize(50)
 def show():
   url = request.args.get('url','')
   if 'imslp.org/wiki/' not in url:

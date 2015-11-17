@@ -6,8 +6,15 @@ from jinja2 import Markup
 import re, json, os, socket, htmlmin
 from random import randrange
 from pprint import pprint
+import redis
+from flask.ext.cache import Cache
 
 app = Flask(__name__)
+
+cache = Cache(app,config={
+  'CACHE_TYPE':       'redis',
+  'CACHE_REDIS_URL':  os.environ.get('REDIS_URL') or 'redis://localhost/0',
+})
 
 @app.route('/')
 def get_index():
