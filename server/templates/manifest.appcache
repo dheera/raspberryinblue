@@ -267,5 +267,5 @@ CACHE MANIFEST
 /static/js/jquery.transit.min.js
 
 NETWORK:
+/
 *
-/version/1

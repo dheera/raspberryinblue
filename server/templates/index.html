@@ -64,7 +64,7 @@
       <template is="dom-repeat" items="{{data}}">
         <paper-card on-click="doResultsCard">
           <div class="card-body">
-            <div style="float:right;max-height:100px;overflow:hidden;"><img style="width:100px;" src="{{item.thumb}}"></div>
+            <div style="float:right;max-height:100px;overflow:hidden;"><img style="width:100px;border-left:10px solid white;" src="{{item.thumb}}"></div>
             <div style="font-size:18px;">{{item.title}}</div>
           </div>
         </paper-card>
@@ -94,7 +94,7 @@
         <template is="dom-if" if="{{item.isScore}}">
           <paper-card>
             <div class="card-body">
-              <div style="float:right;"><img src="{{item.thumb}}" style="width:100px;border-left:10px solid white;"></div>
+              <div style="float:right;max-height:100px;overflow:hidden;"><img src="{{item.thumb}}" style="width:100px;border-left:10px solid white;"></div>
               <div style="color:#808080;font-size:16px;margin-bottom:5px;">{{item.publisher}}</div>
               <div style="color:#b0b0b0;font-size:12px;text-transform:uppercase;margin-bottom:10px;">{{item.copyright}}</div>
               <div style="border-top:1px solid #d0d0d0;margin-top:10px;margin-bottom:10px;"></div>
