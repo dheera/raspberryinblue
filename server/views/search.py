@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from flask import Blueprint, render_template, abort, request
-import requests, json
+import requests, json, re
 
 search = Blueprint('search', __name__, template_folder='templates')
 
@@ -36,8 +36,17 @@ def show():
        'User:' not in result['titleNoFormatting'] and \
        'IMSLP:' not in result['titleNoFormatting'] and \
        '(' in result['titleNoFormatting']:
-      results_out.append({
+
+      result_out = {
         'url': result['unescapedUrl'],
         'title': result['titleNoFormatting'].split(' - ',1)[0],
-      })
+      }
+
+      m = re.search(r".*\((.*)\)", result['unescapedUrl'])
+      if(m):
+        result_out['composer'] = m.group(1)
+        result_out['thumb'] = '/composers/' + result_out['composer'].replace(' ','_') + '/thumb'
+
+      results_out.append(result_out)
+
   return json.dumps(results_out)

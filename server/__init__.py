@@ -32,6 +32,9 @@ app.register_blueprint(search)
 from .views.scores import scores
 app.register_blueprint(scores)
 
+from .views.composers import composers
+app.register_blueprint(composers)
+
 from .views.getfile import getfile
 app.register_blueprint(getfile)
 
