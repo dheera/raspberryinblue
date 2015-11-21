@@ -48,7 +48,7 @@ def after_request(response):
     response.headers['Cache-Control'] = 'max-age=7200, must-revalidate'
     response.headers['Expires'] = '0'
   elif response.headers['Content-Type'].find('application/')==0:
-    response.headers['Cache-Control'] = 'max-age=7200, must-revalidate'
+    response.headers['Cache-Control'] = 'no-cache, must-revalidate'
     response.headers['Expires'] = '0'
   else:
     response.headers['Cache-Control'] = 'no-cache, must-revalidate'
