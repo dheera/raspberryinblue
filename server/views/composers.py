@@ -6,21 +6,22 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 from server import cache
 
-def make_cache_key(*args, **kwargs):
-  return request.url
-
 composers = Blueprint('composers', __name__, template_folder='templates')
 
 @composers.route('/composers/<name>/thumb')
-@cache.cached(timeout = 30*86400, key_prefix = make_cache_key)
 def show_photo(name):
   name = name.replace(' ','_')
-  data = get_composer_info(name)
-  if 'thumb' in data:
-    return redirect(data['thumb'])
+  try:
+    data = get_composer_data(name)
+    if 'thumb' in data:
+      return redirect(data['thumb'])
+    else:
+      return redirect('/static/blank.gif')
+  except:
+    return redirect('/static/blank.gif')
 
-@cache.cached(timeout = 30*86400, key_prefix = make_cache_key)
-def get_composer_info(name):
+@cache.memoize(timeout = 30*86400)
+def get_composer_data(name):
 
   composer_data = {}
 
@@ -29,6 +30,10 @@ def get_composer_info(name):
     'action': 'render',
   }
   response = requests.get(url, params = params).text
+
+  if not response:
+    raise Exception()
+
   soup = BeautifulSoup(response,'lxml')
   el = soup.find('img')
 
