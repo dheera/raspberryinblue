@@ -51,13 +51,11 @@
   <div class="fit">
 
 <div id="viewpager" class="viewpager"><div class="viewpager-fragments">
-
-
-  <div id="fragment-results" class="viewpager-fragment">
-    <div id="div-input" style="padding-left:20px;padding-right:20px;padding-bottom:20px;padding-top:10px;background:#ffffff;">
+  <div id="fragment-results" class="viewpager-fragment" style="background:url(/static/images/raspberry.jpg);background-size:cover;">
+    <div id="div-input" style="padding-left:20px;padding-right:20px;padding-bottom:20px;padding-top:10px;background:rgba(255,255,255,0.9);">
       <paper-input id="input-search" label="Search for scores ..."></paper-input>
     </div>
-    <div id="div-results" style="padding:20px;">
+    <div id="div-results" style="padding-left:20px;padding-right:20px;background:rgba(255,255,255,0.9);">
     <div id="div-results-spinner" style="text-align:center;display:none;"><paper-spinner active></paper-spinner></div>
     {% raw %}
     <template id="results" is="dom-bind">
@@ -72,7 +70,7 @@
     </template>
     {% endraw %}
     </div>
-    <div id="div-ack" style="padding:40px;color:#a0a0a0;font-size:11px;text-align:center;">
+    <div id="div-ack" style="padding:10px;color:#606060;font-size:11px;text-align:center;background:rgba(255,255,255,0.9);">
       Powered by <a href="http://google.com/">Google</a> and <a href="http://imslp.org">IMSLP</a>.
     </div>
   </div>
